@@ -88,15 +88,17 @@ function deleteItem(i) {
 }
 
 function createItem(item) {
-    itemsArray.push(item.value);
-    localStorage.setItem("items", JSON.stringify(itemsArray));
-    location.reload();
-}
+    if (item.value) {
+        itemsArray.push(item.value);
+        localStorage.setItem("items", JSON.stringify(itemsArray));
+        location.reload();
+    };
+};
 
 function displayDate() {
     let date = new Date();
     date = date.toString().split(" ");
-    document.querySelector("#date").innerHTML = date[1] + " " + date[2] + " " + date[3];
+    document.querySelector("#date").innerHTML = date[0] + " " + date[1] + " " + date[2] + " " + date[3];
 }
 
 window.onload = function () {
